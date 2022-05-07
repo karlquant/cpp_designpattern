@@ -1,6 +1,6 @@
 // Requires Random1.cpp
 
-#include <Random1.h>
+#include "Random1.h"
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -18,7 +18,7 @@ double SimpleMonteCarlo1(double Expiry, double Strike, double Spot, double Vol, 
         double thisGaussian = GetOneGaussianByBoxMuller();
         thisSpot = movedSpot * exp(rootVariance*thisGaussian);
         double thisPayoff = thisSpot - Strike;
-        thisPayoff = thisPayoff if thisPayoff > 0 else 0;
+        thisPayoff = thisPayoff > 0 ? thisPayoff : 0;
         runningSum += thisPayoff;
     }
 
