@@ -27,7 +27,7 @@ void ConvergenceTable::DumpOneResult(double result) {
 }
 
 std::vector<std::vector<double>> ConvergenceTable::GetResultsSoFar() const {
-    std::vector<std::vector<double>> tmp(inner->GetResultsSoFar());
+    std::vector<std::vector<double>> tmp(resultsSoFar);
     if (PathsDone*2 != stoppingPoint) {
         std::vector<std::vector<double>> thisResult(inner->GetResultsSoFar());
         for (unsigned long i=0; i < thisResult.size(); i++) {
