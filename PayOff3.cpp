@@ -8,7 +8,7 @@ PayOffCall::PayOffCall(double Strike_): Strike(Strike_) {
 }
 
 double PayOffCall::operator() (double Spot) const {
-    return max(Strike - Spot, 0.0);
+    return max(Spot - Strike, 0.0);
 }
 
 PayOff* PayOffCall::clone() const {
@@ -20,7 +20,7 @@ PayOffPut::PayOffPut(double Strike_): Strike(Strike_) {
 }
 
 double PayOffPut::operator() (double Spot) const {
-    return max(Spot - Strike, 0.0);
+    return max(Strike - Spot, 0.0);
 }
 
 PayOff* PayOffPut::clone() const {
